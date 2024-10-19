@@ -1,0 +1,30 @@
+﻿@page "/weather"
+
+<PageTitle>Weather</PageTitle>
+
+<h1>Weather</h1>
+
+<p>This component demonstrates showing data.</p>
+
+
+<RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.Center" Gap="0.5rem" class="rz-p-sm-12">
+    <RadzenLabel Text="Select Value" Component="DropDownBindValue" />
+    <RadzenDropDown TValue="string" Data=@city TextProperty="Value" Style="width: 100%; max-width: 400px;" Name="DropDownBindValue" />
+    <RadzenButton Text="Secondary" ButtonStyle="ButtonStyle.Secondary" />
+
+</RadzenStack>
+
+@code{
+    public string? selectedValue;
+    public List<DropdownItem> city = new List<DropdownItem>
+    {
+        new DropdownItem { Value="Mumbail"},
+        new DropdownItem { Value="Nashik"},
+        new DropdownItem { Value="Pune"},
+        new DropdownItem { Value="Manmad"},
+    };
+    public class DropdownItem
+    {
+       public string? Value{ get; set;}
+    }
+}
